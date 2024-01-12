@@ -34,7 +34,7 @@ cat << "EOF"
                     -*=:.-*+.      .+*-.:.-*+.      .+*-.:=*-                    
                     .-+**+=.        .-+***+-.        .=+**+-.                    
 EOF
-echo "Welcome to AutoGPT, This script will guide you through a standard setup. Sudo is required for docker install"
+echo "Welcome to StartGPT, This script will guide you through a standard setup. Sudo is required for docker install"
 echo "Starting setup process..."
 
 # Optional system update with warning
@@ -72,9 +72,9 @@ if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Clone and set up AutoGPT
-git clone https://github.com/Significant-Gravitas/AutoGPT.git
-cd AutoGPT/autogpts/autogpt
+# Clone and set up StartGPT
+git clone https://github.com/KhulnaSoft/StartGPT.git
+cd StartGPT/startgpts/startgpt
 ./setup
 
 # Prompt for OpenAI API key and update .env file
@@ -83,7 +83,7 @@ read -r openai_api_key
 sed -i "s/your-openai-api-key/${openai_api_key}/" .env.template
 mv .env.template .env
 
-# Run AutoGPT serve command
-./autogpt.sh serve
+# Run StartGPT serve command
+./startgpt.sh serve
 
-echo "AutoGPT server is running."
+echo "StartGPT server is running."
